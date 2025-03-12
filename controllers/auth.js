@@ -17,7 +17,7 @@ const crearUsuario = async (  req , res = response ) =>{
       
       return res.status(400).json({
         ok : false,
-        mgs : 'Eso correo ya fue utilizado intenta con otro'
+        msg : 'Eso correo ya fue utilizado intenta con otro'
       })
     }
     
@@ -43,7 +43,7 @@ const crearUsuario = async (  req , res = response ) =>{
   } catch (error) {
     res.status(500).json({
       ok: false,
-      mgs : 'Por favor hable con el administrador '
+      msg : 'Por favor hable con el administrador '
     })
   }
 
@@ -63,7 +63,7 @@ const loginUsuario = async (  req , res  = response ) =>{
       
       return res.status(400).json({
         ok : false,
-        mgs : 'Usuario o Contraseña Incorrectos'
+        msg : 'Usuario o Contraseña Incorrectos'
       })
     }
 
@@ -74,7 +74,7 @@ const loginUsuario = async (  req , res  = response ) =>{
     if (!validPassword ) {
       return res.status(400).json({
         ok : false,
-        mgs : 'Usuario o Contraseña Incorrectos'
+        msg : 'Usuario o Contraseña Incorrectos'
       })
     }
 
@@ -91,7 +91,7 @@ const loginUsuario = async (  req , res  = response ) =>{
   } catch (error) {
     res.status(500).json({
       ok: false,
-      mgs : 'Por favor hable con el administrador '
+      msg : 'Por favor hable con el administrador '
     })
   }
 
@@ -107,6 +107,8 @@ const revalidarToken =  async (  req , res = response ) =>  {
 
   res.json({
     ok : true,
+    uid ,
+    name ,
     token
 
   })
